@@ -1,0 +1,114 @@
+* { 
+    box-sizing: border-box; 
+}
+
+body { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    background-color: #ffffdd; 
+}
+
+.column-container { 
+    width: 100%; 
+    margin: auto; 
+}
+
+h1 { 
+    font-size: 30px; 
+    text-transform: uppercase; 
+}
+
+ul { 
+    list-style-type: none; 
+}
+
+.create-column { 
+    background-color: #0202ff; 
+    width: 200px; 
+    height: 50px; 
+    border-radius: 60px; 
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #000; 
+    border: 2px solid #ddd; 
+    box-shadow: 3px 6px #fff; 
+}
+
+.create-column:hover { 
+    cursor: pointer; 
+    background-color: #aaaaff; 
+}
+
+.btn-delete { 
+    background-color: #ff0000; 
+    margin-right: 5px; 
+    border-radius: 50%; 
+    font-weight: bold; 
+}
+
+.btn-delete:hover { 
+    cursor: pointer; 
+}
+
+.column-add-card { 
+    height: 40px; 
+    width: 120px; 
+    border-radius: 20px; 
+    box-shadow: 3px 2px #afafd8; 
+    color: #000; 
+    background-color: #24ef09; 
+    font-weight: bold; 
+}
+
+.column-add-card:hover { 
+    cursor: pointer; 
+    background-color: #179500; 
+    color: #fff; 
+}
+
+.board { 
+    text-align: center; 
+}
+
+.column { 
+    border: 2px solid #fff; 
+    width: 300px; 
+    min-height: 500px; 
+    float: left; 
+    background: #bbffff; 
+    border-radius: 10px; 
+    margin-right: 10px; 
+    margin-top: 20px; 
+}
+
+.column-card-list { 
+    min-height: 50px; 
+    width: 90%; 
+}
+
+.column-title { 
+    word-wrap: normal; 
+    background-color: #fff; 
+    border: 1px solid #bbbfff; 
+    border-radius: 5px; 
+}
+
+.column::before, 
+.column::after { 
+    content: ""; 
+    display: table; 
+    clear: both; 
+}
+
+.card { 
+    border: 1px solid #ffffdd; 
+    background-color: #fff000; 
+    box-shadow: 2px 2px #ffffdd; 
+    width: 90%; 
+    min-height: 50px; 
+    margin-right: 60px; 
+    margin-top: 10px; 
+    border-radius: 5px; 
+    word-wrap: normal; 
+}

@@ -1,5 +1,4 @@
-// KLASA KANBAN CARD
-function Card(id, name) {
+function Card(id ,name) {
 	var self = this;
 	
 	this.id = id;
@@ -9,7 +8,7 @@ function Card(id, name) {
 	function createCard() {
 		var card = $('<li class="card"></li>');
 		var cardDeleteBtn = $('<button class="btn-delete">x</button>');
-		var cardDescription = $('<p class="card-description"></p>');
+		var cardDescription = $('<p class="card-name"></p>');
 		
 		cardDeleteBtn.click(function(){
 			self.removeCard();
@@ -17,19 +16,21 @@ function Card(id, name) {
 		
 		card.append(cardDeleteBtn);
 		cardDescription.text(self.name);
-		card.append(cardDescription)
+		card.append(cardDescription);
 		return card;
 	}
 }
+
 Card.prototype = {
-	removeCard: function() {
+    removeCard: function() {
         var self = this;
-        $.ajax ({
+        var baseUrl;
+	    $.ajax({
             url: baseUrl + '/card/' + self.id,
             method: 'DELETE',
-            success: function() {
-                self.$element.remove();
-            }
-        });
+            success: function(){
+	        self.element.remove();
+	       }
+	    });
     }
-}
+};
