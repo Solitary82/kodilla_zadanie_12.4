@@ -3,9 +3,6 @@ var myHeaders = {
     'X-Client-Id': '2645',
     'X-Auth-Token': '504b4bec79b7c144e4b99b4e37dc47ed'
 };
-var board;
-var Card;
-var Column;
 
 $.ajaxSetup({
     headers: myHeaders

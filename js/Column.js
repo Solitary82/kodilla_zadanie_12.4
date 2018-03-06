@@ -1,5 +1,3 @@
-var baseUrl;
-
 function Column(id, name) {
 	var self = this;
 
@@ -22,7 +20,7 @@ function Column(id, name) {
             var cardName = prompt("Enter the name of the card");
 			event.preventDefault();
 			$.ajax({ 
-				url: baseUrl + '/card',
+				url: baseUrl + '/card/',
 				method: 'POST',
 				data: {
 				name: cardName,
@@ -30,11 +28,7 @@ function Column(id, name) {
 				},
 				success: function(response) {
 				    var card = new Card(response.id, cardName);
-                    if(cardName.lenght > 0) {
-                        self.createCard(card);
-                    } else {
-                        prompt('Please enter name');
-                    }
+                    self.createCard(card);
 				}
             });
         });
