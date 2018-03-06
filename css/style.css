@@ -52,8 +52,7 @@ ul {
 }
 
 .column-add-card { 
-    height: 40px; 
-    width: 120px; 
+    height: 40px; width: 120px; 
     border-radius: 20px; 
     box-shadow: 3px 2px #afafd8; 
     color: #000; 
@@ -61,8 +60,8 @@ ul {
     font-weight: bold; 
 }
 
-.column-add-card:hover { 
-    cursor: pointer; 
+.column-add-card:hover { cursor: pointer; 
+    
     background-color: #179500; 
     color: #fff; 
 }

@@ -10,7 +10,7 @@ function Column(id, name) {
 		var columnTitle = $('<h2 class="column-title">' + self.name + '</h2>');
 		var columnCardList = $('<ul class="card-list"></ul>');
 		var columnDelete = $('<button class="btn-delete">x</button>');
-		var columnAddCard = $('<button class="column-add-card">Dodaj kartę</button>');
+		var columnAddCard = $('<button class="column-add-card">Add card</button>');
 			
 		columnDelete.click(function() {
             self.deleteColumn();
@@ -18,7 +18,6 @@ function Column(id, name) {
 			
 		columnAddCard.click(function(event) {
             var cardName = prompt("Enter the name of the card");
-            var baseUrl;
 			event.preventDefault();
 			$.ajax({ 
 				url: baseUrl + '/card',
@@ -29,10 +28,10 @@ function Column(id, name) {
 				},
 				success: function(response) {
 				    var card = new Card(response.id, cardName);
-                    if(cardName.lenght > 0) {
-				        self.createCard(card);
+                    if(cardName.lenght === 0) {
+				        prompt('Please enter name');
                     } else {
-                        prompt('Please enter name');
+                        self.createCard(card);
                     }
 				}
             });
@@ -52,7 +51,6 @@ Column.prototype = {
 	},
 	deleteColumn: function() { 
         var self = this;
-        var baseUrl;
 		$.ajax({
             url: baseUrl + '/column/' + self.id,
 			method: 'DELETE',
