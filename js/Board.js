@@ -6,6 +6,7 @@ var board = {
 	},
 	element: $('#board .column-container')
 };
+var baseUrl;
 
 $('.create-column').click(function() {
     var columnName = prompt('Enter a column name');
@@ -17,10 +18,10 @@ $('.create-column').click(function() {
     	},
     	success: function(response){
     		var column = new Column(response.id, columnName);
-            if(columnName.length === 0) {
-                prompt('Please enter name');
-            } else {
+            if(columnName.length > 0) {
                 board.createColumn(column);
+            } else {
+                prompt('Please enter name');
             }
       	}
     });

@@ -1,3 +1,4 @@
+var baseUrl;
 function Card(id ,name) {
 	var self = this;
 	
