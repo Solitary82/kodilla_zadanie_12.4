@@ -19,18 +19,22 @@ function Column(id, name) {
 		columnAddCard.click(function(event) {
             var cardName = prompt("Enter the name of the card");
 			event.preventDefault();
-			$.ajax({ 
-				url: baseUrl + '/card/',
-				method: 'POST',
-				data: {
-				name: cardName,
-				bootcamp_kanban_column_id: self.id
-				},
-				success: function(response) {
-				    var card = new Card(response.id, cardName);
-                    self.createCard(card);
-				}
-            });
+            if(cardName.length > 0) {
+			     $.ajax({ 
+				    url: baseUrl + '/card/',
+				    method: 'POST',
+				    data: {
+				    name: cardName,
+				    bootcamp_kanban_column_id: self.id
+				    },
+				    success: function(response) {
+				        var card = new Card(response.id, cardName);
+                        self.createCard(card);
+				    }
+                });
+            } else {
+                alert('Enter card name');
+            }
         });
 				
 		column.append(columnTitle)
@@ -50,7 +54,7 @@ Column.prototype = {
 		$.ajax({
             url: baseUrl + '/column/' + self.id,
 			method: 'DELETE',
-			success: function(response){
+			success: function(){
 			self.element.remove();
             }
         });

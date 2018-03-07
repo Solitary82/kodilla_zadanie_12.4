@@ -9,6 +9,7 @@ var board = {
 
 $('.create-column').click(function() {
     var columnName = prompt('Enter a column name');
+    if(columnName.length > 0) {
     $.ajax({
         url: baseUrl + '/column',
     	method: 'POST',
@@ -20,6 +21,9 @@ $('.create-column').click(function() {
             board.createColumn(column);
         }
     });
+    } else {
+        alert('Enter column name');
+    }
 });
 	
 function initSortable() {
